@@ -48,7 +48,8 @@ namespace App
 
             // 2.
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Mannequins mannequins = new Mannequins();
+            IDress mannequins = new Mannequins();
+            mannequins = new Clothes(mannequins);
             Clothes clothes = new Clothes(mannequins);
             clothes.GetDressed();
             Console.ForegroundColor = ConsoleColor.White;
