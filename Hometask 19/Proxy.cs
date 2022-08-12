@@ -28,13 +28,14 @@ namespace App
 
         public void run()
         {
-            Console.WriteLine("Running data from " + _db + " Database...");
+            Console.WriteLine("Running data from " + _db + " Database...\n");
         }
     }
 
 
     class ProxyProject : IDatabase
     {
+        private string _password = "1234";
         private string _db;
         private RealProject realProject;
 
@@ -45,6 +46,25 @@ namespace App
 
         public void run()
         {
+            string line;
+            Console.WriteLine("Enter the password to DB: ");
+            while(true)
+            {
+                try
+                {
+                    line = Console.ReadLine();
+                }
+                catch (Exception)
+                {
+                    throw new Exception("An error occurred...");
+                }
+                if (!line.Equals(_password))
+                {
+                    Console.WriteLine("The password is wrong. Try one more time...");
+                    continue;
+                }
+                break;
+            }
             if (realProject == null)
             {
                 realProject = new RealProject(_db);

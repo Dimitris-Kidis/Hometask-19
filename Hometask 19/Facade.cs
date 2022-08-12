@@ -13,7 +13,9 @@ namespace App
 
         private Singleton()
         {
-            Console.WriteLine("Singleton has been created!");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Singleton has been created!\n");
+            Console.ForegroundColor = ConsoleColor.White;
             Init();
         }
 
@@ -39,13 +41,19 @@ namespace App
         public static void Init()
         {
             // 1.
+            Console.ForegroundColor = ConsoleColor.Green;
             IDatabase project = new ProxyProject("https://database.com/appHello.db");
             project.run();
+            Console.ForegroundColor = ConsoleColor.White;
 
             // 2.
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Mannequins mannequins = new Mannequins();
             Clothes clothes = new Clothes(mannequins);
             clothes.GetDressed();
+            Console.ForegroundColor = ConsoleColor.White;
+
+
 
         }
     }
